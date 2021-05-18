@@ -1,0 +1,30 @@
+{
+	"name": "targetJSON",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_BLOB",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"targetfile": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@concat(split(dataset().targetfile,'.')[0],formatDateTime(utcnow(),'yyyy-MM-dd'),'.','.csv')",
+					"type": "Expression"
+				},
+				"container": "json-to-csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
