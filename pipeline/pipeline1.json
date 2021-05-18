@@ -268,7 +268,13 @@
 							"outputs": [
 								{
 									"referenceName": "DS_ABS_Output_CSV",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"sinkfile2": {
+											"value": "@item().name",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
