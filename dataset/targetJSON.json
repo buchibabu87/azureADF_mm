@@ -16,7 +16,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
-					"value": "@concat(split(dataset().targetfile,'.')[0],formatDateTime(utcnow(),'yyyy-MM-dd'),'.','.csv')",
+					"value": "@concat(split(dataset().targetfile,'.')[0],'_',formatDateTime(utcnow(),'yyyy-MM-dd'),'.','.csv')",
 					"type": "Expression"
 				},
 				"container": "json-to-csv"
