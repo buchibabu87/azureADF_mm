@@ -1,0 +1,72 @@
+{
+	"name": "DS_JSON",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_BLOB",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sourcefile2": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().sourcefile2",
+					"type": "Expression"
+				},
+				"container": "jsondata"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"Code": {
+					"type": "integer"
+				},
+				"created_by": {
+					"type": "string"
+				},
+				"contant": {
+					"type": "integer"
+				},
+				"manufacture_Year": {
+					"type": "string"
+				},
+				"SortOrder": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"profit": {
+					"type": "string"
+				},
+				"managment": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"id": {
+								"type": "string"
+							},
+							"type": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
