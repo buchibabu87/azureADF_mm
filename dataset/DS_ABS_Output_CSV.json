@@ -5,6 +5,11 @@
 			"referenceName": "LS_BLOB",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"sinkfile2": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "1"
 		},
@@ -13,7 +18,11 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"container": "employee"
+				"fileName": {
+					"value": "@concat(split(dataset().sinkfile2,'.')[0],formatDateTime(utcnow(),'yyyy-MM-dd'),'.','csv')",
+					"type": "Expression"
+				},
+				"container": "jsondata"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
