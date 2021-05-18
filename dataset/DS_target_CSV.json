@@ -1,0 +1,30 @@
+{
+	"name": "DS_target_CSV",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_BLOB",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"targetfile_csv": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@concat(split(dataset().targetfile_csv,'.')[0],formatDateTime(utcnow(),'yyyy-MM-dd'),'.',split(dataset().targetfile_csv,'.')[0])",
+					"type": "Expression"
+				},
+				"container": "csv-to-csvdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
