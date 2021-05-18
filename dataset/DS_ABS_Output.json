@@ -19,7 +19,7 @@
 			"location": {
 				"type": "AzureBlobStorageLocation",
 				"fileName": {
-					"value": "@dataset().outputfile",
+					"value": "@concat(split(dataset().outputfile,'.')[0],formatDateTime(utcnow(),'yyyy-MM-dd'),'.',split(dataset().outputfile,'.')[1])",
 					"type": "Expression"
 				},
 				"container": "csvdata"

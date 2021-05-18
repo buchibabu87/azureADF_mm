@@ -11,6 +11,9 @@
 				"defaultValue": "input"
 			}
 		},
+		"folder": {
+			"name": "1"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
